@@ -54,9 +54,8 @@ namespace System.Net.Http
 		bool preAuthenticate;
 		IWebProxy proxy;
 		bool useCookies;
-		bool useDefaultCredentials;
 		bool useProxy;
-		ClientCertificateOption certificate;
+		SslClientAuthenticationOptions sslOptions;
 		bool allowPipelining;
 		RequestCachePolicy cachePolicy;
 		AuthenticationLevel authenticationLevel;
@@ -66,7 +65,6 @@ namespace System.Net.Http
 		int readWriteTimeout;
 		RemoteCertificateValidationCallback serverCertificateValidationCallback;
 		bool unsafeAuthenticatedConnectionSharing;
-		X509CertificateCollection clientCertificates;
 		bool sentRequest;
 		string connectionGroupName;
 		bool disposed;
@@ -87,7 +85,6 @@ namespace System.Net.Http
 			readWriteTimeout = 300000;
 			serverCertificateValidationCallback = null;
 			unsafeAuthenticatedConnectionSharing = false;
-			clientCertificates = new X509CertificateCollection ();
 			connectionGroupName = "HttpClientHandler" + Interlocked.Increment (ref groupCounter);
 		}
 
@@ -116,16 +113,6 @@ namespace System.Net.Http
 			set {
 				EnsureModifiability ();
 				automaticDecompression = value;
-			}
-		}
-
-		public ClientCertificateOption ClientCertificateOptions {
-			get {
-				return certificate;
-			}
-			set {
-				EnsureModifiability ();
-				certificate = value;
 			}
 		}
 
@@ -226,16 +213,6 @@ namespace System.Net.Http
 			}
 		}
 
-		public bool UseDefaultCredentials {
-			get {
-				return useDefaultCredentials;
-			}
-			set {
-				EnsureModifiability ();
-				useDefaultCredentials = value;
-			}
-		}
-
 		public bool UseProxy {
 			get {
 				return useProxy;
@@ -267,16 +244,6 @@ namespace System.Net.Http
 			set {
 				EnsureModifiability ();
 				authenticationLevel = value;
-			}
-		}
-
-		public X509CertificateCollection ClientCertificates {
-			get {
-				if (this.ClientCertificateOptions != ClientCertificateOption.Manual) {
-					throw new InvalidOperationException ("The ClientCertificateOptions property must be set to 'Manual' to use this property.");
-				}
-
-				return clientCertificates;
 			}
 		}
 
@@ -326,6 +293,14 @@ namespace System.Net.Http
 			set {
 				EnsureModifiability ();
 				unsafeAuthenticatedConnectionSharing = value;
+			}
+		}
+
+		public SslClientAuthenticationOptions SslOptions {
+			get => sslOptions ?? (sslOptions = new SslClientAuthenticationOptions ());
+			set {
+				EnsureModifiability ();
+				sslOptions = value;
 			}
 		}
 
@@ -382,11 +357,7 @@ namespace System.Net.Http
 				wr.CookieContainer = CookieContainer;
 			}
 
-			if (useDefaultCredentials) {
-				wr.UseDefaultCredentials = true;
-			} else {
-				wr.Credentials = credentials;
-			}
+			wr.Credentials = credentials;
 
 			if (useProxy) {
 				wr.Proxy = proxy;
@@ -539,15 +510,6 @@ namespace System.Net.Http
 			return CreateResponseMessage (wresponse, request, cancellationToken);
 		}
 
-		public bool CheckCertificateRevocationList {
-			get {
-				throw new NotImplementedException ();
-			}
-			set {
-				throw new NotImplementedException ();
-			}
-		}
-
 		public ICredentials DefaultProxyCredentials {
 			get {
 				throw new NotImplementedException ();
@@ -568,24 +530,6 @@ namespace System.Net.Http
 
 		public IDictionary<string, object> Properties {
 			get {
-				throw new NotImplementedException ();
-			}
-		}
-
-		public Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> ServerCertificateCustomValidationCallback {
-			get {
-				throw new NotImplementedException ();
-			}
-			set {
-				throw new NotImplementedException ();
-			}
-		}
-
-		public SslProtocols SslProtocols {
-			get {
-				throw new NotImplementedException ();
-			}
-			set {
 				throw new NotImplementedException ();
 			}
 		}

@@ -25,23 +25,7 @@ namespace System.Net.Http
 			get; set;
 		}
 
-		ClientCertificateOption ClientCertificateOptions {
-			get; set;
-		}
-
-		X509CertificateCollection ClientCertificates {
-			get;
-		}
-
-		Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> ServerCertificateCustomValidationCallback {
-			get; set;
-		}
-
-		bool CheckCertificateRevocationList {
-			get; set;
-		}
-
-		SslProtocols SslProtocols {
+		SslClientAuthenticationOptions SslOptions {
 			get; set;
 		}
 
@@ -61,15 +45,7 @@ namespace System.Net.Http
 			get; set;
 		}
 
-		long MaxRequestContentBufferSize {
-			get; set;
-		}
-
 		bool PreAuthenticate {
-			get; set;
-		}
-
-		bool UseDefaultCredentials {
 			get; set;
 		}
 
@@ -90,6 +66,10 @@ namespace System.Net.Http
 		}
 
 		int MaxResponseHeadersLength {
+			get; set;
+		}
+
+		long MaxRequestContentBufferSize {
 			get; set;
 		}
 
