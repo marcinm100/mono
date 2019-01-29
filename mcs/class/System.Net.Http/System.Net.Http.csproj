@@ -113,15 +113,18 @@
   <!--Common files-->
   <ItemGroup>
     <Compile Include="Assembly\AssemblyInfo.cs" />
-    <Compile Include="IMonoHttpClientHandler.cs" />
   </ItemGroup>
   <!--End of common files-->
   <!--Per-profile files-->
   <Choose>
     <When Condition="'$(Platform)' == 'xammac'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -179,8 +182,12 @@
     </When>
     <When Condition="'$(Platform)' == 'winaot'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -237,8 +244,12 @@
     </When>
     <When Condition="'$(Platform)' == 'wasm'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -296,8 +307,12 @@
     </When>
     <When Condition="'$(Platform)' == 'unreal'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -354,8 +369,12 @@
     </When>
     <When Condition="'$(Platform)' == 'orbis'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -415,8 +434,12 @@
       <Choose>
         <When Condition="'$(HostPlatform)' == 'win32'">
           <ItemGroup>
+            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
             <Compile Include="HeaderUtils.Legacy.cs" />
             <Compile Include="HttpClientHandler.Legacy.cs" />
+            <Compile Include="HttpClientHandler.cs" />
+            <Compile Include="IMonoHttpClientHandler.cs" />
             <Compile Include="MonoWebRequestHandler.cs" />
             <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
             <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -526,9 +549,7 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\ViaHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\WarningHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClient.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.Core.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.netcoreapp.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpCompletionOption.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpContent.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpMessageHandler.cs" />
@@ -579,9 +600,12 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\StringContent.cs" />
             <Compile Include="..\corlib\System.Diagnostics\Debug.cs" />
             <Compile Include="HeaderUtils.SocketsHandler.cs" />
-            <Compile Include="HttpClientHandler.Mono.cs" />
+            <Compile Include="HttpClientHandler.SocketsHandler.cs" />
+            <Compile Include="HttpClientHandler.cs" />
+            <Compile Include="IMonoHttpClientHandler.cs" />
             <Compile Include="MonoWebRequestHandler.cs" />
             <Compile Include="corefx\NetEventSource.Http.cs" />
+            <Compile Include="corefx\SocketsHttpHandler.Mono.cs" />
           </ItemGroup>
         </When>
         <When Condition="'$(HostPlatform)' == 'macos'">
@@ -639,9 +663,7 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\ViaHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\WarningHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClient.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.Core.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.netcoreapp.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpCompletionOption.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpContent.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpMessageHandler.cs" />
@@ -692,9 +714,12 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\StringContent.cs" />
             <Compile Include="..\corlib\System.Diagnostics\Debug.cs" />
             <Compile Include="HeaderUtils.SocketsHandler.cs" />
-            <Compile Include="HttpClientHandler.Mono.cs" />
+            <Compile Include="HttpClientHandler.SocketsHandler.cs" />
+            <Compile Include="HttpClientHandler.cs" />
+            <Compile Include="IMonoHttpClientHandler.cs" />
             <Compile Include="MonoWebRequestHandler.cs" />
             <Compile Include="corefx\NetEventSource.Http.cs" />
+            <Compile Include="corefx\SocketsHttpHandler.Mono.cs" />
           </ItemGroup>
         </When>
         <When Condition="'$(HostPlatform)' == 'linux'">
@@ -752,9 +777,7 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\ViaHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\Headers\WarningHeaderValue.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClient.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.Core.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.cs" />
-            <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpClientHandler.netcoreapp.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpCompletionOption.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpContent.cs" />
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\HttpMessageHandler.cs" />
@@ -805,9 +828,12 @@
             <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\StringContent.cs" />
             <Compile Include="..\corlib\System.Diagnostics\Debug.cs" />
             <Compile Include="HeaderUtils.SocketsHandler.cs" />
-            <Compile Include="HttpClientHandler.Mono.cs" />
+            <Compile Include="HttpClientHandler.SocketsHandler.cs" />
+            <Compile Include="HttpClientHandler.cs" />
+            <Compile Include="IMonoHttpClientHandler.cs" />
             <Compile Include="MonoWebRequestHandler.cs" />
             <Compile Include="corefx\NetEventSource.Http.cs" />
+            <Compile Include="corefx\SocketsHttpHandler.Mono.cs" />
           </ItemGroup>
         </When>
       </Choose>
@@ -872,8 +898,12 @@
     </When>
     <When Condition="'$(Platform)' == 'monotouch_tv'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -930,8 +960,12 @@
     </When>
     <When Condition="'$(Platform)' == 'monotouch'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />
@@ -988,8 +1022,12 @@
     </When>
     <When Condition="'$(Platform)' == 'monodroid'">
       <ItemGroup>
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\CancellationHelper.cs" />
+        <Compile Include="..\..\..\external\corefx\src\System.Net.Http\src\System\Net\Http\SocketsHttpHandler\ConnectHelper.cs" />
         <Compile Include="HeaderUtils.Legacy.cs" />
         <Compile Include="HttpClientHandler.Legacy.cs" />
+        <Compile Include="HttpClientHandler.cs" />
+        <Compile Include="IMonoHttpClientHandler.cs" />
         <Compile Include="MonoWebRequestHandler.cs" />
         <Compile Include="System.Net.Http.Headers\AuthenticationHeaderValue.cs" />
         <Compile Include="System.Net.Http.Headers\CacheControlHeaderValue.cs" />

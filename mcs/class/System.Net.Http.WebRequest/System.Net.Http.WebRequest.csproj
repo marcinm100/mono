@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="..\..\build\common\Consts.cs" />
     <Compile Include="..\..\build\common\MonoTODOAttribute.cs" />
+    <Compile Include="..\System.Net.Http\MonoWebRequestHandler.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="System.Net.Http.WebRequest\WebRequestHandler.cs" />
     <ProjectReference Include="$(SolutionDir)\msvc\scripts\genconsts.csproj">
